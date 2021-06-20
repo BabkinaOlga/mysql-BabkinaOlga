@@ -1,0 +1,76 @@
+
+mysql> exit
+Bye
+
+C:\Users\Игнат>cat /?
+"cat" не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.
+
+C:\Users\Игнат>cat
+"cat" не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.
+
+C:\Users\Игнат>mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 5.7.33-log MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> CREATE DATABASE sample;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> EXIT
+Bye
+
+C:\Users\Игнат>mysql sample<exaple.sql
+Не удается найти указанный файл.
+
+C:\Users\Игнат>mysql sample<example.sql
+ERROR: ASCII '\0' appeared in the statement, but this is not allowed unless opti
+on --binary-mode is enabled and mysql is run in non-interactive mode. Set --bina
+ry-mode to 1 if ASCII '\0' is expected. Query: ' ¦-'.
+
+C:\Users\Игнат>mysql sample < example.sql
+ERROR: ASCII '\0' appeared in the statement, but this is not allowed unless opti
+on --binary-mode is enabled and mysql is run in non-interactive mode. Set --bina
+ry-mode to 1 if ASCII '\0' is expected. Query: ' ¦-'.
+
+C:\Users\Игнат>mysql --binary-mode 1
+ERROR 1049 (42000): Unknown database '1'
+
+C:\Users\Игнат>mysql sample < example.sql
+
+C:\Users\Игнат>mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 18
+Server version: 5.7.33-log MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> USE sample;
+Database changed
+mysql> SHOW tables;
++------------------+
+| Tables_in_sample |
++------------------+
+| user             |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> exit
+Bye
+
+C:\Users\Игнат>
